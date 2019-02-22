@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import get from 'lodash/get';
 import './App.css';
 
 // -----------------------------------------------------------------------------------------
@@ -8,6 +9,11 @@ import './App.css';
 import UpBox from './components/UpBox';
 import RightBox from './components/RightBox';
 import LeftBox from './components/LeftBox';
+
+// -----------------------------------------------------------------------------------------
+// ----------------------------------------- Data ------------------------------------------
+// -----------------------------------------------------------------------------------------
+import testData from './data/testData';
 
 // -----------------------------------------------------------------------------------------
 // ---------------------------------- Styled Components ------------------------------------
@@ -23,12 +29,14 @@ const SubBoxWrapper = styled.div`
 `;
 
 const App = () => {
+  const [selectedId, setSelectedId] = useState(null);
+
   return (
     <Wrapper>
-      <UpBox />
+      <UpBox name={get(testData, [selectedId, 'name'])} />
       <SubBoxWrapper>
-        <LeftBox />
-        <RightBox />
+        <LeftBox setSelectedId={setSelectedId} />
+        <RightBox usersObj={testData} />
       </SubBoxWrapper>
     </Wrapper>
   );

@@ -7,8 +7,8 @@ export default {
   },
   id_2: {
     id: 'id_2',
-    name: 'sean',
-    email: 'sean@gmail.com',
-    tel: '123-123-1233',
+    name: 'hong',
+    email: 'hong@gmail.com',
+    tel: '345-345-3455',
   },
 };

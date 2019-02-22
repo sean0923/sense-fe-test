@@ -7,6 +7,14 @@ import styled from 'styled-components';
 // -----------------------------------------------------------------------------------------
 const Wrapper = styled.div`border: 1px solid black;`;
 
+const NameWrapper = styled.div`
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+  }
+`;
+
 const defaultUsersObj = {
   id_1: {
     id: 'id_1',
@@ -18,11 +26,15 @@ const defaultUsersObj = {
   },
 };
 
-const LeftBox = ({ usersObj = defaultUsersObj }) => {
+const LeftBox = ({ usersObj = defaultUsersObj, setSelectedId }) => {
   return (
     <Wrapper>
       {map(usersObj, ({ name, id }) => {
-        return <div key={id}>{name}</div>;
+        return (
+          <NameWrapper onClick={() => setSelectedId(id)} key={id}>
+            {name}
+          </NameWrapper>
+        );
       })}
     </Wrapper>
   );
