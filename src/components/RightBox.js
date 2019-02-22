@@ -8,16 +8,21 @@ const Wrapper = styled.div`border: 1px solid black;`;
 
 const defaultUserObj = {
   id: 'id_1',
-  name: 'sean',
-  email: 'sean@gmail.com',
+  name: 'default default',
+  email: 'default@gmail.com',
   tel: '123-123-1233',
+  notes: 'default notes',
 };
 
 const RightBox = ({ userObj = defaultUserObj }) => {
   return (
     <Wrapper>
-      {['name', 'email', 'tel'].map(objKey => {
-        return <div key={objKey}>{userObj[objKey]}</div>;
+      {['email', 'tel', 'notes'].map(label => {
+        return (
+          <div key={label}>
+            <span>{`${label}: ${userObj[label]}`}</span>
+          </div>
+        );
       })}
     </Wrapper>
   );

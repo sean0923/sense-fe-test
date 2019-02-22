@@ -18,11 +18,11 @@ const NameWrapper = styled.div`
 const defaultUsersObj = {
   id_1: {
     id: 'id_1',
-    name: 'sean',
+    name: 'default sean',
   },
   id_2: {
     id: 'id_2',
-    name: 'hong',
+    name: 'default hong',
   },
 };
 
@@ -32,7 +32,7 @@ const LeftBox = ({ usersObj = defaultUsersObj, setSelectedId }) => {
       {map(usersObj, ({ name, id }) => {
         return (
           <NameWrapper onClick={() => setSelectedId(id)} key={id}>
-            {name}
+            {`* ${name}`}
           </NameWrapper>
         );
       })}

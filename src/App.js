@@ -35,8 +35,8 @@ const App = () => {
     <Wrapper>
       <UpBox name={get(testData, [selectedId, 'name'])} />
       <SubBoxWrapper>
-        <LeftBox setSelectedId={setSelectedId} />
-        <RightBox usersObj={testData} />
+        <LeftBox usersObj={testData} setSelectedId={setSelectedId} />
+        <RightBox userObj={testData[selectedId]} />
       </SubBoxWrapper>
     </Wrapper>
   );
