@@ -1,5 +1,5 @@
 import React from 'react';
-
+import map from 'lodash/map';
 import styled from 'styled-components';
 
 // -----------------------------------------------------------------------------------------
@@ -7,21 +7,21 @@ import styled from 'styled-components';
 // -----------------------------------------------------------------------------------------
 const Wrapper = styled.div`border: 1px solid black;`;
 
-const LeftBox = ({
-  users = [
-    {
-      id: 'id_1',
-      name: 'sean',
-    },
-    {
-      id: 'id_2',
-      name: 'hong',
-    },
-  ],
-}) => {
+const defaultUsersObj = {
+  id_1: {
+    id: 'id_1',
+    name: 'sean',
+  },
+  id_2: {
+    id: 'id_2',
+    name: 'hong',
+  },
+};
+
+const LeftBox = ({ usersObj = defaultUsersObj }) => {
   return (
     <Wrapper>
-      {users.map(({ name, id }) => {
+      {map(usersObj, ({ name, id }) => {
         return <div key={id}>{name}</div>;
       })}
     </Wrapper>
