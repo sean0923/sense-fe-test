@@ -7,12 +7,23 @@ import styled from 'styled-components';
 // -----------------------------------------------------------------------------------------
 const Wrapper = styled.div`border: 1px solid black;`;
 
-const LeftBox = () => {
+const LeftBox = ({
+  users = [
+    {
+      id: 'id_1',
+      name: 'sean',
+    },
+    {
+      id: 'id_2',
+      name: 'hong',
+    },
+  ],
+}) => {
   return (
     <Wrapper>
-      <div>LeftBox</div>
-      <div>LeftBox</div>
-      <div>LeftBox</div>
+      {users.map(({ name, id }) => {
+        return <div key={id}>{name}</div>;
+      })}
     </Wrapper>
   );
 };

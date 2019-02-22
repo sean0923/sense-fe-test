@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import './App.css';
 
@@ -17,16 +17,21 @@ const Wrapper = styled.div`
   width: 40%;
 `;
 
-class App extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <UpBox />
-        <RightBox />
+const SubBoxWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+`;
+
+const App = () => {
+  return (
+    <Wrapper>
+      <UpBox />
+      <SubBoxWrapper>
         <LeftBox />
-      </Wrapper>
-    );
-  }
-}
+        <RightBox />
+      </SubBoxWrapper>
+    </Wrapper>
+  );
+};
 
 export default App;
